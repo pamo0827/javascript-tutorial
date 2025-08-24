@@ -61,7 +61,6 @@ console.log(++y); // => 2
 console.log(y);   // => 2
 
 // -------------------------------------------------
-
 /*
     NaNは"Not-a-Number"の略称で、
     数値ではないがNumber型の値を表現している。
@@ -184,4 +183,93 @@ console.log((-9) >>> 2); // => 1073741821
 // => 0011_1111_1111_1111_1111_1111_1111_1101
 
 // 代入演算子（=）
+// 変数に対して値を代入する。
+let s = 1;
 
+const array = [1, 2];
+const [a, b] = array; // 分割代入
+
+// -------------------------------------------------
+
+// 倫理演算子
+
+// AND演算子（&&）
+
+/* 
+左辺がtrueならば、右辺を返す。 
+左辺がfalseならば、左辺の値を返す。
+*/
+
+console.log(true && "右辺の値"); // => "右辺の値"
+console.log(false && "右辺の値"); // => false 
+
+true && console.log("このコンソールログは実行されます");
+false && console.log("このコンソールログは実行されません");
+
+// falsy（暗黙的な型変換によってfalseに変換される値）
+
+/* 
+- false
+- undefined
+- null
+- 0
+- 0n
+- NaN
+- ""（空文字列）
+*/
+
+console.log("" && "右辺の値"); // => ""
+console.log(0 && "右辺の値"); // => 0
+console.log(null && "右辺の値"); // => null
+
+// OR演算子（||）
+
+/* 
+左辺がtrueならば、左辺を返す。
+左辺がfalseならば、右辺を返す。
+*/
+
+console.log(true || "右辺の値"); // => true
+console.log(false || "右辺の値"); // => "右辺の値"
+
+true || console.log("このコンソールログは実行されません");
+false || console.log("このコンソールログは実行されます");
+
+// NOT演算子（!）: 真偽値を反転
+
+console.log(!0); // => true
+console.log(!""); // => true
+console.log(!null); // => true
+
+console.log(!42);  // => false
+console.log(!"文字列");  // => false
+
+// 2つNOT演算子を重ねて真偽値へ変換する使い方
+const str_2 = "";
+console.log(!!str); // => false
+
+// Nullish coalescing演算子(??)
+
+/* 
+左辺がnullishならば、右辺を返す。
+左辺がnullishでないならば、左辺を返す。
+*/
+
+// 左辺がnullishであるため、右辺の値の評価結果を返す
+console.log(null ?? "右辺の値"); // => "右辺の値"
+console.log(undefined ?? "右辺の値"); // => "右辺の値"
+// 左辺がnullishではないため、左辺の値の評価結果を返す
+console.log(true ?? "右辺の値"); // => true
+console.log(false ?? "右辺の値"); // => false
+console.log(0 ?? "右辺の値"); // => 0
+console.log("文字列" ?? "右辺の値"); // => "文字列"
+
+// -------------------------------------------------
+
+// 条件演算子
+
+// 条件式 ? Trueのとき処理する式 : Falseのとき処理する式;
+const valueA = true ? "A" : "B";
+console.log(valueA); // => "A"
+const valueB = false ? "A" : "B";
+console.log(valueB); // => "B"
